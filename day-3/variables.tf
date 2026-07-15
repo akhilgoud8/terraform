@@ -17,7 +17,7 @@ variable "tags" {
 variable "aws_region" {
   description = "The AWS region where resources will be created"
   type        = string
-  default     = "us-east-1"
+  default     = ""
 }
 
 # terraform apply -var="ami_id=ami-002192a70217ac181" -var="instance_type=t2.micro" -var="tags=test-instance" -var="aws_region=us-east-1"
