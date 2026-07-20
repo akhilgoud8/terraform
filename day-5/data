@@ -1,0 +1,51 @@
+# aws_eip.nat[0] will be created
+  + resource "aws_eip" "nat" {
+      
+  # aws_internet_gateway.main will be created
+  + resource "aws_internet_gateway" "main" {
+      
+  # aws_nat_gateway.main[0] will be created
+  + resource "aws_nat_gateway" "main" {
+
+  # aws_route_table.private[0] will be created
+  + resource "aws_route_table" "private" {
+     
+  # aws_route_table.private[1] will be created
+  + resource "aws_route_table" "private" {
+      
+  # aws_route_table.public will be created
+  + resource "aws_route_table" "public" {
+      
+  # aws_route_table_association.private[0] will be created
+  + resource "aws_route_table_association" "private" {
+     
+  # aws_route_table_association.private[1] will be created
+  + resource "aws_route_table_association" "private" {
+     
+
+  # aws_route_table_association.public[0] will be created
+  + resource "aws_route_table_association" "public" {
+     
+  # aws_route_table_association.public[1] will be created
+  + resource "aws_route_table_association" "public" {
+     
+
+  # aws_subnet.private[0] will be created
+  + resource "aws_subnet" "private" {
+      
+  # aws_subnet.private[1] will be created
+  + resource "aws_subnet" "private" {
+     
+
+  # aws_subnet.public[0] will be created
+  + resource "aws_subnet" "public" {
+     
+
+  # aws_subnet.public[1] will be created
+  + resource "aws_subnet" "public" {
+      
+
+  # aws_vpc.main will be created
+  + resource "aws_vpc" "main" {
+     
+Plan: 15 to add, 0 to change, 0 to destroy.
