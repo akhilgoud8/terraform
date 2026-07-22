@@ -111,7 +111,7 @@ resource "aws_instance" "server" {
   provisioner "remote-exec" {
     inline = [
       "touch /home/ubuntu/file200",
-      "echo 'hello from veera devops cloud' >> /home/ubuntu/file200"
+      "echo 'hello from veera devos' >> /home/ubuntu/file200"
     ]
   }
   provisioner "local-exec" {
