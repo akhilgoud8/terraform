@@ -94,6 +94,15 @@ resource "aws_instance" "server" {
   tags = {
     Name = "UbuntuServer"
   }
+  #  lifecycle {
+  #   create_before_destroy = true  #first create and the destroy
+  # }
+  # lifecycle {
+  #   ignore_changes = [ tags ]
+  # }
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 
   connection {
     type        = "ssh"
