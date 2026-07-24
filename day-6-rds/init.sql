@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS dev;
 USE dev;
 
 CREATE TABLE users (

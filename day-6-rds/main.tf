@@ -1,9 +1,14 @@
 resource "aws_vpc" "name" {
+
   cidr_block = "10.0.0.0/16"
+
+  enable_dns_support = true
+
+  enable_dns_hostnames = true
+
   tags = {
     Name = "dev"
   }
-
 }
 resource "aws_internet_gateway" "name" {
   vpc_id = aws_vpc.name.id
@@ -103,26 +108,15 @@ resource "aws_db_instance" "primary" {
   instance_class    = "db.t3.micro"
   identifier        = "mydbinstance"
   username          = "admin"
+  db_name           = "dev"
   password          = "Cloud123" #self managed password
   #managed_master_user_password = true  #enable password management by AWS Secrets Manager
-  db_subnet_group_name   = aws_db_subnet_group.my_subnet_group.name
-  vpc_security_group_ids = [aws_security_group.my_security_group.id]
-  #publicly_accessible  = true
+  db_subnet_group_name    = aws_db_subnet_group.my_subnet_group.name
+  vpc_security_group_ids  = [aws_security_group.my_security_group.id]
+  publicly_accessible     = true
   skip_final_snapshot     = true
   maintenance_window      = "Mon:00:00-Mon:03:00"
   backup_retention_period = 7
 
 
-}
-
-
-resource "aws_db_instance" "replica" {
-  identifier          = "mydbinstance-replica"
-  replicate_source_db = aws_db_instance.primary.identifier
-  instance_class      = "db.t3.micro"
-  publicly_accessible = false
-  skip_final_snapshot = true
-  vpc_security_group_ids = [
-    aws_security_group.my_security_group.id
-  ]
 }
